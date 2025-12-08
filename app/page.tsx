@@ -22,14 +22,15 @@ export default function Home() {
         <h1 className="font-semibold text-xl">Smart Wallets</h1>
         <div className="flex flex-col sm:flex-row gap-3 mx-auto justify-between w-xl">
           <div className="flex flex-col gap-4 p-4">
-            <h2>Alchemy</h2>
+            <h2 className="">Alchemy</h2>
             {signerStatus.isInitializing ? (
               <>Loading...</>
             ) : user ? (
               <div className="flex flex-col gap-2 p-2">
-                <p className="text-xl font-bold">Success!</p>
-                You're logged in as {user.address.slice(0, 6)}...
-                {user.address?.slice(-4) ?? "anon"}.
+                <p className="italic">
+                  You're logged in as {user.address.slice(0, 6)}...
+                  {user.address?.slice(-4) ?? "anon"}
+                </p>
                 <button
                   className="akui-btn akui-btn-primary mt-6"
                   onClick={() => logout()}
@@ -50,8 +51,9 @@ export default function Home() {
             <h2>EOA</h2>
             {isConnected ? (
               <div className="flex flex-col gap-2 p-2">
-                <p className="text-xl font-bold">Success!</p>
-                Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
+                <p className="italic">
+                  Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
+                </p>
                 <button
                   className="akui-btn akui-btn-primary mt-6"
                   onClick={() => disconnect.mutate()}
